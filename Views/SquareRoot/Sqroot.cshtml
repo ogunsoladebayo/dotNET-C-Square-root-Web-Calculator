@@ -4,7 +4,7 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>This page displays the number which has a higher square root.</p>
-@{
+@{if(ViewBag.firstRoot != null && ViewBag.secondRoot != null){
     if(ViewBag.firstRoot > ViewBag.secondRoot){
     <div>
         <p>The number @ViewBag.firstNum with square root @ViewBag.firstRoot has a higher square root than the number @ViewBag.secondNum with square root @ViewBag.secondRoot</p>
@@ -16,11 +16,17 @@
         <p>The number @ViewBag.secondNum with square root @ViewBag.secondRoot has a higher square root than the number @ViewBag.firstNum with square root @ViewBag.firstRoot</p>
     </div>
     }
-    else{
+    else if(ViewBag.firstRoot == ViewBag.secondRoot){
     <div>
-        <p> The numbers have the same root </p>
+        <p> The numbers have the same root, input new values </p>
     </div>
     }
+}
+    else if (ViewBag.Result == true){
+        <div>
+            <p> You have entered a negative integer </p>
+        </div>
+        }
 
 }
 <div>

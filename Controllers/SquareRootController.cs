@@ -17,8 +17,19 @@ namespace Task4.Controllers
             // string result = "";
             int FirstNumber = int.Parse(firstNumber);
             int SecondNumber = int.Parse(secondNumber);
-            double rootFirstNum = Math.Sqrt(FirstNumber);
-            double rootSecondNum = Math.Sqrt(SecondNumber);
+            if (FirstNumber > 0 && SecondNumber > 0)
+            {
+                double rootFirstNum = Math.Sqrt(FirstNumber);
+                double rootSecondNum = Math.Sqrt(SecondNumber);
+                ViewBag.firstRoot = rootFirstNum;
+                ViewBag.secondRoot = rootSecondNum;
+
+
+            }
+            else
+            {
+            ViewBag.Result = true;
+            }
             // if(rootFirstNum > rootSecondNum){
             //     string result = ("The number " + FirstNumber + " with Square root " + rootFirstNum + " has a higher square root than the number " + SecondNumber + " with square root " + rootSecondNum);
             //     return result;
@@ -29,8 +40,6 @@ namespace Task4.Controllers
             // }
             ViewBag.firstNum = FirstNumber;
             ViewBag.secondNum = SecondNumber;
-            ViewBag.firstRoot = rootFirstNum;
-            ViewBag.secondRoot = rootSecondNum;
             return View();
         }
 
